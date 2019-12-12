@@ -10,16 +10,20 @@ For liquibase migrate process use MVN Command line:
 mvn liquibase:update
 
 File with changeSet's (named db.changelog.xml), you can find it project directory "\liquibase"
-=========================
+
+= = = = = = = = = = = = = = = = = = = = = =
+
 Before deploying project you must configure some parameters
-in pom.xml file you can find section <properties>
+in pom.xml file you can find section   properties 
 
 set the 
-<wildfly-hostname>
-<wildfly-port>
-<wildfly-username>
-<wildfly-password>
+ wildfly-hostname 
+ wildfly-port 
+ wildfly-username 
+ wildfly-password 
 
+ = = = = = = = = = = = 
+ 
 To deploy this project you can chosee one of this ways:
 1. From the wildfly interface page 
    http://wildfly-server:9990/console/index.html
@@ -31,7 +35,7 @@ To deploy this project you can chosee one of this ways:
    
    "mvn clean install wildfly:deploy"
    
-=========================
+= = = = = = = = = = = = = = = = = = = = = =
 
 In MySQL DB persist russian letters, so, for correct testing application you need to configure Mysql server config "my.ini"
 
@@ -54,7 +58,8 @@ CREATE TABLE `city` (
 COLLATE='utf8_general_ci'
 
 
-=========================
+= = = = = = = = = = = = = = = = = = = = = =
+
 In project directory "to_upload" you can find files
 Cities.xml
 Distances.xml
@@ -63,7 +68,8 @@ Which files you can use to upload additional data to Database from REST Applicat
 
 PS 
 Third api endpoint of test-task.
-=========================
+
+= = = = = = = = = = = = = = = = = = = = = =
 
 Additional Information
 
@@ -75,4 +81,4 @@ https://www.distance.to/Samara,Samarskaya-oblast',RUS/Paris,%C3%8Ele-de-France,F
 
 Formula "crow flight"
 http://www.codecodex.com/wiki/Calculate_distance_between_two_points_on_a_globe#Java
-=========================
+ 
