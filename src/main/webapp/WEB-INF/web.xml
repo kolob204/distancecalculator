@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>JAX-RS: Jersey 2 / JAXB / WindFly Test Project</display-name>
+
+    <filter>
+        <filter-name>jersey-mvc-filter</filter-name>
+        <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.webservice</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>
+                org.glassfish.jersey.media.multipart.MultiPartFeature,
+                org.glassfish.jersey.server.mvc.jsp.JspMvcFeature</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name>
+            <param-value>/WEB-INF/jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.servlet.filter.contextPath</param-name>
+            <param-value></param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.servlet.filter.forwardOn404</param-name>
+            <param-value>true</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
+            <param-value>(/(jsp|js|css)/?.*)|(/.*\.jsp)|(/WEB-INF/jsp/.*\.jsp)</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>jersey-mvc-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+
+</web-app>

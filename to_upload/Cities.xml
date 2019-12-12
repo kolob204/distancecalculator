@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cities>
+<city>
+<latitude>66.666</latitude>
+<longitude>00.15</longitude>
+<name>ZombiLand</name>
+</city>
+<city>
+<latitude>77.7777</latitude>
+<longitude>99.9999</longitude>
+<name>SevenHeaven</name>
+</city>
+</cities>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<distances>
+
+<distance>
+<from_city>Самара</from_city>
+<to_city>Чарлстон</to_city>
+<distance>9312</distance>
+</distance>
+
+<distance>
+<from_city>Самара</from_city>
+<to_city>Тольятти</to_city>
+<distance>97</distance>
+</distance>
+
+</distances>

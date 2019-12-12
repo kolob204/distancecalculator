@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+ 
+ 
+<changeSet id="changelog-1.0" author="magenta">
+        <sql>
+			DROP TABLE IF EXISTS `city`;
+            DROP TABLE IF EXISTS `distance`;
+        </sql>
+</changeSet>
+ 
+<changeSet author="magenta" id="changelog-2.0">
+    <createTable tableName="city">
+		<column name="id" type="BIGINT">
+			<constraints nullable="false" primaryKey="true" unique="true" autoIncrement="true" startWith="1" />
+		
+		</column>
+	  
+		<column name="name" type="varchar(45)">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+	  
+		<column name="latitude" type="DOUBLE">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+		
+		<column name="longitude" type="DOUBLE">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+		
+    </createTable>
+	<modifySql dbms="mysql">
+        <replace replace="VARCHAR(20)" with="VARCHAR(20) CHARACTER SET utf8_general_ci COLLATE utf8_general_ci" />
+    </modifySql>
+</changeSet>
+  
+<changeSet author="magenta" id="changelog-3.0">
+	<insert tableName="city">            
+            <column name="name" value="Самара"/>
+            <column name="latitude" value="53.20007"/>
+			<column name="longitude" value="50.15"/>
+	</insert>
+	<insert tableName="city">            
+            <column name="name" value="Москва"/>
+            <column name="latitude" value="55.75222"/>
+			<column name="longitude" value="37.61556"/>
+	</insert>
+    <insert tableName="city">            
+            <column name="name" value="Лондон"/>
+            <column name="latitude" value="51.50853"/>
+			<column name="longitude" value="-0.12574"/>
+	</insert>
+	<insert tableName="city">            
+            <column name="name" value="Санкт-Петербург"/>
+            <column name="latitude" value="59.93863"/>
+			<column name="longitude" value="30.31413"/>
+	</insert>
+  	<insert tableName="city">            
+            <column name="name" value="Владивосток"/>
+            <column name="latitude" value="43.10562"/>
+			<column name="longitude" value="131.87353"/>
+	</insert>
+	<insert tableName="city">            
+            <column name="name" value="Токио"/>
+            <column name="latitude" value="35.6895"/>
+			<column name="longitude" value="139.69171"/>
+	</insert>
+		<insert tableName="city">            
+            <column name="name" value="Париж"/>
+            <column name="latitude" value="48.85341"/>
+			<column name="longitude" value="2.3488"/>
+	</insert>
+	<insert tableName="city">            
+            <column name="name" value="Мадрид"/>
+            <column name="latitude" value="40.4165"/>
+			<column name="longitude" value="-3.70256"/>
+	</insert>
+		<insert tableName="city">            
+            <column name="name" value="Тольятти"/>
+            <column name="latitude" value="53.5303"/>
+			<column name="longitude" value="49.3461"/>
+	</insert>
+ 	<insert tableName="city">            
+            <column name="name" value="Чарлстон"/>
+            <column name="latitude" value="32.77657"/>
+			<column name="longitude" value="-79.93092"/>
+	</insert>	
+	 
+</changeSet>
+
+<changeSet author="magenta" id="changelog-4.0">
+    <createTable tableName="distance">
+		<column name="id" type="BIGINT">
+			<constraints nullable="false" primaryKey="true" unique="true" autoIncrement="true" startWith="1" />
+		
+		</column>
+	  
+		<column name="from_city" type="varchar(45)">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+	  
+		<column name="to_city" type="varchar(45)">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+		
+		<column name="distance" type="BIGINT">
+			<constraints nullable="false" primaryKey="false" unique="false"/>		
+		</column>
+		
+    </createTable>
+	<modifySql dbms="mysql">
+        <replace replace="VARCHAR(20)" with="VARCHAR(20) CHARACTER SET utf8_general_ci COLLATE utf8_general_ci" />
+    </modifySql>
+</changeSet>
+
+<changeSet author="magenta" id="changelog-5.0">
+ 	<insert tableName="distance">            
+            <column name="from_city" value="Самара"/>
+            <column name="to_city" value="Москва"/>
+			<column name="distance" value="854"/>
+	</insert>	
+ 	<insert tableName="distance">            
+            <column name="from_city" value="Самара"/>
+            <column name="to_city" value="Лондон"/>
+			<column name="distance" value="3347"/>
+	</insert>		
+ 	<insert tableName="distance">            
+            <column name="from_city" value="Самара"/>
+            <column name="to_city" value="Санкт-Петербург"/>
+			<column name="distance" value="1417"/>
+	</insert>	 
+ 	<insert tableName="distance">            
+            <column name="from_city" value="Самара"/>
+            <column name="to_city" value="Санкт-Петербург"/>
+			<column name="distance" value="5830"/>
+	</insert> 
+ 	<insert tableName="distance">            
+            <column name="from_city" value="Самара"/>
+            <column name="to_city" value="Токио"/>
+			<column name="distance" value="6887"/>
+	</insert>  
+    <insert tableName="distance">            
+            <column name="from_city" value="Москва"/>
+            <column name="to_city" value="Лондон"/>
+			<column name="distance" value="2501"/>
+	</insert>  
+    <insert tableName="distance">            
+            <column name="from_city" value="Москва"/>
+            <column name="to_city" value="Санкт-Петербург"/>
+			<column name="distance" value="634"/>
+	</insert>  
+    <insert tableName="distance">            
+            <column name="from_city" value="Москва"/>
+            <column name="to_city" value="Токио"/>
+			<column name="distance" value="7480"/>
+	</insert>  
+    <insert tableName="distance">            
+            <column name="from_city" value="Лондон"/>
+            <column name="to_city" value="Санкт-Петербург"/>
+			<column name="distance" value="2100"/>
+	</insert> 
+    <insert tableName="distance">            
+            <column name="from_city" value="Лондон"/>
+            <column name="to_city" value="Владивосток"/>
+			<column name="distance" value="8526"/>
+	</insert> 	
+    <insert tableName="distance">            
+            <column name="from_city" value="Лондон"/>
+            <column name="to_city" value="Владивосток"/>
+			<column name="distance" value="9561"/>
+	</insert>
+    <insert tableName="distance">            
+            <column name="from_city" value="Санкт-Петербург"/>
+            <column name="to_city" value="Владивосток"/>
+			<column name="distance" value="6539"/>
+	</insert>
+    <insert tableName="distance">            
+            <column name="from_city" value="Санкт-Петербург"/>
+            <column name="to_city" value="Токио"/>
+			<column name="distance" value="7595"/>
+	</insert>
+ 
+</changeSet>
+</databaseChangeLog>
